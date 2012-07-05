@@ -1,16 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[My Octopress Blog]]></title>
-  <link href="http://theroux.github.com/atom.xml" rel="self"/>
-  <link href="http://theroux.github.com/"/>
-  <updated>2012-05-31T22:22:22-04:00</updated>
-  <id>http://theroux.github.com/</id>
+  <title><![CDATA[AndrewTheroux.com]]></title>
+  <link href="http://andrewtheroux.com/atom.xml" rel="self"/>
+  <link href="http://andrewtheroux.com/"/>
+  <updated>2012-07-04T22:51:44-04:00</updated>
+  <id>http://andrewtheroux.com/</id>
   <author>
-    <name><![CDATA[Your Name]]></name>
+    <name><![CDATA[Andrew Theroux]]></name>
     
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Fun with Octopress]]></title>
+    <link href="http://andrewtheroux.com/blog/2012/07/04/fun-with-octopress/"/>
+    <updated>2012-07-04T12:28:00-04:00</updated>
+    <id>http://andrewtheroux.com/blog/2012/07/04/fun-with-octopress</id>
+    <content type="html"><![CDATA[<p>Just wanted to make a place where I can share my long-form thoughts. This is long overdue. I used to have a Wordpress blog, but WP comes with a lot of overhead and cruft I don&#8217;t really need. It seems like every other week, there&#8217;s some new security exploit that requires a full upgrade to patch.</p>
+
+<p>Octopress seems to bring it back to the basics, which I really appreciate. And by skipping the database, it&#8217;s ultra-speedy.</p>
+]]></content>
+  </entry>
   
 </feed>
