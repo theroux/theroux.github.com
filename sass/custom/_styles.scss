@@ -1,7 +1,7 @@
 // This File is imported last, and will override other styles in the cascade
 // Add styles here to make changes without digging in too much
 
-$basebg: #fbfbfb;
+$basebg: #fafafa;
 $baselink: #00658a;
 $basehover: #ed5a3b;
 $borderradius: 4px;
@@ -11,6 +11,10 @@ $maincolumnwidth: 652px;
 $sidecolumnwidth: 323px;
 $sidepadding: 45px;
 
+$iphonewidth: 480px;
+$ipadwidth: 768px;
+$laptopwidth: 1024px;
+
 /* Global classes */
 .ir { /* image replacement technique */
     border: 0;
@@ -19,15 +23,18 @@ $sidepadding: 45px;
     color: transparent;
     background-color: transparent;
 }
+* {
+	@include transition(all 0.5s 0);
+}
 /* Page layout */
 #hat, #main, footer {
 	margin: 0 auto;
 }
 
-body > #hat {
+#hat {
 	clear: both;
 	height: 98px;
-	padding: 90px 0 0 0;
+	padding: $sidepadding*2 0 0 0;
 	width: 1200px;
 	header {
 		float: left;
@@ -52,6 +59,7 @@ body > #hat {
 			width: 315px;			
 		}
 	}
+	
 }
 #main, #footer-wrapper > footer {
 	background: $basebg;
@@ -63,8 +71,11 @@ body > #hat {
 	width: 1110px;
 }
 #main {
-	display: table; /* modern clearfix */
+	background: $basebg url(/images/border.png) 742px 0 repeat-y;
 	margin-bottom: $sidepadding*2;
+}
+#content {
+	display: inline-block;
 }
 #footer-wrapper {
 	bottom: 0;
@@ -76,15 +87,13 @@ body > #hat {
 	}
 }
 #content > article, #content > .blog-index {
-	border-right: #ededed 1px solid;
 	float: left;
 	padding: $sidepadding*2 $sidepadding $sidepadding*2 0;
 	width: $maincolumnwidth;
 }
 #content > aside {
-	border-left: #fefefe 1px solid;
 	float: right;
-	padding: $sidepadding*2 $sidepadding $sidepadding*2 0;
+	padding: $sidepadding*2 $sidepadding $sidepadding*2;
 	width: $sidecolumnwidth;
 	#tweets {
 		.relative-date {
@@ -126,41 +135,145 @@ html {
 } 
 body {
 	color: #555;
-	font-family: 'Nimbus Sans', sans-serif;
+	font-family: 'nimbus-sans', sans-serif;
 	font-size: 16px; font-size: 1.6rem; /* =16x */
 	font-style: normal;
+	font-weight: 300;
 	line-height: 150%; line-height: 2.4rem;
 
+}
+strong, b {
+	font-weight: 400;
 }
 h1, h2, h3, h4, h5, h6 {
 	font-family: Adelle, serif;
 	font-weight: 400;
-	margin: 1em 0;
 }
 h1   {
 	font-size: 24px; font-size: 2.4rem; /* =24px */
-	line-height: 32px; line-height: 3.2rem; /* =32px */
+	line-height: 24px; line-height: 2.4rem; 
+	margin: 0 0 1em;
 }
 h2 {
 	font-size: 20px; font-size: 2.0rem; /* =20px */
-	line-height: 30px; line-height: 3.0rem; /* =30px */
+	line-height: 24px; line-height: 2.4rem; 
+	margin: 0 0 1.2em;
 }
 h3 {
 	font-size: 14px; font-size: 1.4rem; /* =14px */
-	line-height: 20px; line-height: 2.0rem; /* =20px */
+	line-height: 24px; line-height: 2.4rem;
+	margin: 0 0 1.7143em;
 }
-p {
-	margin: 1em 0;
+p, time {
+	margin: 0 0 1.5em;
 }
 aside {
 	font-size: 14px; font-size: 1.4rem; /* =14px */
-	line-height: 20px; line-height: 2.0rem; /* =20px */
-
+	line-height: 24px; line-height: 2.4rem; 
+	section {
+		margin-bottom: 24px; margin-bottom: 2.4rem;
+	}
 	h1 {
 		font-size: 20px; font-size: 2.0rem; /* =20px */
-		line-height: 30px; line-height: 3.0rem; /* =30px */
+		line-height: 24px; line-height: 2.4rem; 
+		margin: 0 0 1.2em;
 	}
+	p, li {
+		margin: 0 0 1.7143em;
+	}
+	li > p {
+		margin: 0;
+	}
+
 }
 #footer-wrapper > footer {
 	font-size: 14px; font-size: 1.4rem; /* =14px */
+}
+/* Media Queries */
+/* For smaller laptops */
+@media only screen and ( max-width: 1024px) {
+	#hat {
+		padding: $sidepadding 0;
+		width: $laptopwidth;
+		header {
+			margin: 0 auto;
+			padding-left: 0;
+			padding-right: 0;
+		}
+		nav {
+			margin: 0 auto;
+			padding-left: 0;
+			padding-right: 0;			
+		}
+	}
+	#main {
+		background-image: none;
+		width: 934px;
+		#content > article, #content > .blog-index {	
+			border-bottom: 1px solid #e9e9e9;
+			float: left;
+			padding: $sidepadding 0;
+			width: 934px;
+		}
+		#content > aside {
+			border-top: 1px solid #fff;
+			clear: left;
+			float: left;
+			padding: $sidepadding 0 0 0;
+			width: 100%;
+		}
+	}	
+	#footer-wrapper {
+		width: 1024px;
+		footer {
+			width: 934px;
+
+		}
+	}
+}
+/* For general iPad layouts */
+@media only screen and ( max-width: 768px) {
+	#hat {
+		padding: $sidepadding 0;
+		width: $ipadwidth;
+		header {
+			margin: 0 auto;
+			padding-left: 0;
+			padding-right: 0;
+		}
+		nav {
+			margin: 0 auto;
+			padding-left: 0;
+			padding-right: 0;			
+		}
+	}
+	#main {
+		background-image: none;
+		width: 678px;
+		#content > article, #content > .blog-index {	
+			border-bottom: 1px solid #e9e9e9;
+			float: left;
+			padding: $sidepadding 0;
+			width: 678px;
+		}
+		#content > aside {
+			border-top: 1px solid #fff;
+			clear: left;
+			float: left;
+			padding: $sidepadding 0 0 0;
+			width: 100%;
+		}
+	}	
+	#footer-wrapper {
+		width: 768px;
+		footer {
+			width: 678px;
+
+		}
+	}
+}
+
+/* iPhone layouts */
+@media only screen and ( max-width: 480px) {
+
 }
